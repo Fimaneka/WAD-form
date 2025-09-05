@@ -4,26 +4,34 @@
   <meta charset="UTF-8">
   <title>Accessible Registration Form</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Link to external CSS stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Page Heading -->
   <h1>Student Registration</h1>
 
+  <!-- General feedback / error messages container -->
   <div id="feedback" aria-live="polite" class="error"></div>
 
+  <!-- Registration Form -->
   <form id="regForm" novalidate>
+    <!-- First Name -->
     <label for="firstName">First Name *</label>
     <input id="firstName" name="firstName" required aria-describedby="firstNameError">
     <div id="firstNameError" class="error"></div>
 
+    <!-- Last Name -->
     <label for="lastName">Last Name *</label>
     <input id="lastName" name="lastName" required aria-describedby="lastNameError">
     <div id="lastNameError" class="error"></div>
 
+    <!-- Email -->
     <label for="email">Email *</label>
     <input id="email" name="email" type="email" required aria-describedby="emailError">
     <div id="emailError" class="error"></div>
 
+    <!-- Programme Dropdown -->
     <label for="programme">Programme *</label>
     <select id="programme" name="programme" required aria-describedby="programmeError">
       <option value="">--Select Programme--</option>
@@ -34,12 +42,14 @@
     </select>
     <div id="programmeError" class="error"></div>
 
+    <!-- Other Programme (hidden unless "Other" is chosen) -->
     <div id="otherProgrammeContainer" style="display:none;">
       <label for="otherProgramme">Please specify other programme *</label>
       <input id="otherProgramme" name="otherProgramme" aria-describedby="otherProgrammeError">
       <div id="otherProgrammeError" class="error"></div>
     </div>
 
+    <!-- Year Dropdown -->
     <label for="year">Year *</label>
     <select id="year" name="year" required aria-describedby="yearError">
       <option value="">--Select Year--</option>
@@ -47,23 +57,30 @@
     </select>
     <div id="yearError" class="error"></div>
 
+    <!-- Optional Interests -->
     <label for="interests">Interests</label>
     <input id="interests" name="interests">
 
+    <!-- Optional Photo URL -->
     <label for="photo">Photo URL</label>
     <input id="photo" name="photo" type="url" aria-describedby="photoError">
     <div id="photoError" class="error"></div>
 
+    <!-- Form Buttons -->
     <div class="form-actions">
       <button type="submit" id="submitBtn">Register</button>
+      <!-- Cancel Edit button appears only during editing -->
       <button type="button" id="cancelEdit" class="cancel-btn" style="display:none;">Cancel Edit</button>
     </div>
   </form>
 
+  <!-- Search bar for filtering profiles -->
   <input type="text" id="search" placeholder="Search profiles...">
 
+  <!-- Profile cards container -->
   <section class="cards" id="cards"></section>
 
+  <!-- Summary Table for quick overview of all profiles -->
   <div class="table-responsive">
     <table>
       <thead>
@@ -73,6 +90,7 @@
     </table>
   </div>
 
+  <!-- Link to JavaScript functionality -->
   <script src="script.js"></script>
 </body>
 </html>
